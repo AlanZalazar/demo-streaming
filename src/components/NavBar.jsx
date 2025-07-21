@@ -1,115 +1,45 @@
 import React from "react";
 
+import { Link, useLocation } from "react-router-dom";
+
 export default function NavBar() {
+  const location = useLocation();
+
+  // Determinar el título según la ruta
+  const getSectionTitle = () => {
+    switch (location.pathname) {
+      case "/":
+        return "Popular Titles";
+      case "/series":
+        return "Popular Series";
+      case "/peliculas":
+        return "Popular Movies";
+      default:
+        return "Popular Titles";
+    }
+  };
   return (
-    <nav className="absolute top-0 z-40 flex flex-col-3 w-full justify-between">
-      <div className="flex w-full">
-        <img src="./0.navbar/Logo.png" alt="logo" />
-        <img src="./0.navbar/Klean.png" alt="klean" />
-      </div>
-      <div className="md:flex w-full hidden">
-        <ul className="flex">
-          <li className="flex justify-center items-center">
-            Home{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-3"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m19.5 8.25-7.5 7.5-7.5-7.5"
-              />
-            </svg>
-          </li>
-          <li className="flex">
-            Service
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m19.5 8.25-7.5 7.5-7.5-7.5"
-              />
-            </svg>
-          </li>
-          <li className="flex">
-            Works
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m19.5 8.25-7.5 7.5-7.5-7.5"
-              />
-            </svg>
-          </li>
-          <li className="flex">
-            News
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m19.5 8.25-7.5 7.5-7.5-7.5"
-              />
-            </svg>
-          </li>
-          <li className="flex">
-            Contact
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m19.5 8.25-7.5 7.5-7.5-7.5"
-              />
-            </svg>
-          </li>
-        </ul>
-      </div>
-      <div className="flex w-full">
-        <button className="text-[#4E92F9] font-semibold">Log In</button>
-        <button
-          className="font-semibold"
-          style={{
-            background: "linear-gradient(112.77deg, #C381DB 0%, #4E92F9 100%)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
-        >
-          Sing Up
-        </button>
-      </div>
-    </nav>
+    <header className="w-screen h-[15dvh]">
+      <nav className="relative w-full h-[50%] bg-blue-500 flex items-center justify-between p-1 px-[10%] text-center shadow-[0_12px_8px_rgba(0,_0,_0,_0.4)] ">
+        {" "}
+        <Link to="/">
+          {" "}
+          <h1 className="text-5xl font-semibold text-white">DEMO Streaming</h1>
+        </Link>
+        <div className="flex gap-5">
+          <button className="text-white font-semibold p-3 text-[18px]">
+            Log in
+          </button>
+          <button className="bg-neutral-700 px-4 text-white p-2 font-semibold text-[18px]">
+            Start Your free trial
+          </button>
+        </div>
+      </nav>
+      <section className="w-full bg-neutral-700 h-[50%] shadow-[0_12px_8px_rgba(0,_0,_0,_0.4)] flex px-[10%]">
+        <h2 className="text-3xl flex items-center  font-semibold text-white">
+          {getSectionTitle()}
+        </h2>
+      </section>
+    </header>
   );
 }

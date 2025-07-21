@@ -1,14 +1,10 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home.jsx";
-import Services from "./pages/Services.jsx";
-import Details from "./pages/Details.jsx";
-import Features from "./pages/Features.jsx";
-import Projects from "./pages/Projects.jsx";
-import Team from "./pages/Team.jsx";
-import Contact from "./pages/Contact.jsx";
+
+import Series from "./pages/Series.jsx";
+import Peliculas from "./pages/Peliculas.jsx";
 
 import NavBar from "./components/NavBar.jsx";
-import Footer from "./components/Footer.jsx";
 
 function App() {
   const location = useLocation();
@@ -21,14 +17,9 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/details/" element={<Details />} />
-        <Route path="/features" element={<Features />} />
-        <Route path="projects" element={<Projects />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/series" element={<Series />} />
+        <Route path="/peliculas" element={<Peliculas />} />
       </Routes>
-      <Footer />
     </div>
   );
 }
